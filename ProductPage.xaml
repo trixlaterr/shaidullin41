@@ -9,8 +9,72 @@
       Title="ProductPage" FontFamily="Comic Sans MS">
 
     <Grid>
-        <Button Content="Вперед" Name ="Button" Height="30" Width="175" Click="Button_Click"></Button>
-        <ListView Name="ProductListView" HorizontalContentAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"></ColumnDefinition>
+                    <ColumnDefinition Width="300"></ColumnDefinition>
+                    <ColumnDefinition Width="300"></ColumnDefinition>
+                    <ColumnDefinition Width="1000"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75"></RowDefinition>
+                    <RowDefinition Height="75"></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel Margin="10" Orientation="Vertical" HorizontalAlignment="Right"  Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                    <Button Name="OrderBtn" Width="300" Content="Корзина" Click="OrderBtn_Click"></Button>
+                    <TextBlock Name="FIOTB" FontSize="15"></TextBlock>
+                    <TextBlock Name="RoleTB" FontSize="15"></TextBlock> 
+                </StackPanel>
+                
+
+
+
+                <TextBlock Name="TBAllCount" Grid.Column="0" Grid.Row="1" Text="Количество 0 из 0" VerticalAlignment="Center" TextAlignment="Right" Width="150" FontSize="15"></TextBlock>
+            
+                
+
+
+                <StackPanel Margin="10" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1">
+                
+                    <TextBlock Text="Введите название для поиска " TextAlignment="Center" Width="250" FontSize="15"></TextBlock>
+                    <TextBox Name="TBoxSearch" TextChanged="TBoxSearch_TextChanged" Width="250" FontSize="15"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1">
+                    
+                    <RadioButton Content="По возрастанию стоимости" GroupName="Sort" Width="300" FontSize="15" Name="RButtonUp" Checked="RButtonUp_Checked"></RadioButton>
+                    <RadioButton Content="По убыванию стоимости" GroupName="Sort" Width="300" FontSize="15" Name="RButtonDown" Checked="RButtonDown_Checked"></RadioButton>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="3" Grid.Row="1">
+                    <TextBlock Text="Фильтрация по скидке" TextAlignment="Center" Width="200" FontSize="15"></TextBlock>
+                    <ComboBox Name="ComboType" SelectionChanged="ComboType_SelectionChanged" FontSize="15" Width="200">
+                        <TextBlock>Все</TextBlock>
+                        <TextBlock>0-9,99%</TextBlock>
+                        <TextBlock>10-14,99%</TextBlock>
+                        <TextBlock>15-100%</TextBlock>
+                    </ComboBox>
+
+                
+
+                </StackPanel>
+                
+            </Grid>
+
+        </WrapPanel>
+
+
+        <ListView Name="ProductListView" Grid.Row="2"  HorizontalContentAlignment="Stretch" PreviewMouseRightButtonDown="ProductListView_PreviewMouseRightButtonDown">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Добавить к заказу" Click="MenuItem_Click"></MenuItem>
+                </ContextMenu>
+            </ListView.ContextMenu>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="5">

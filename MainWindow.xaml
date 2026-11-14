@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_41"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" FontFamily="Comic Sans MS">
+        Title="Shaidullin 41" Height="450" Width="800" FontFamily="Comic Sans MS">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <Image Source="D:\3 курс исп\ИСП-3524\Шайдуллин\41\Resources\logo.png" HorizontalAlignment="Left"></Image>
+        <Image Source="logo/logo.png" HorizontalAlignment="Left"></Image>
         <TextBlock Text="41 размер" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         <Frame Grid.Row="1" Name="MainFrame" ContentRendered="MainFrame_ContentRendered" NavigationUIVisibility="Hidden"></Frame>
         <Button Content="Назад" Name="BtnBack" Click="BtnBack_Click" HorizontalAlignment="Right"></Button>
